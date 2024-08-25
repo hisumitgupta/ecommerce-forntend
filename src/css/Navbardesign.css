@@ -1,0 +1,84 @@
+/* Navbar Container */
+.navbar {
+    background-color: #2d3748; /* Equivalent to bg-gray-800 */
+    padding: 1rem; /* Equivalent to p-4 */
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo or Brand Name */
+.brand {
+    color: #ffffff; /* Equivalent to text-white */
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+    /* display: none;  */
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 2rem; /* Equivalent to space-x-8 */
+}
+
+.nav-links a {
+    color: #a0aec0; /* Equivalent to text-gray-300 */
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #ffffff; /* Equivalent to hover:text-white */
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none; 
+}
+.dsp-none{
+    display: none;
+}
+.icon {
+    width: 1.5rem; /* Equivalent to w-6 */
+    height: 1.5rem; /* Equivalent to h-6 */
+    color: #a0aec0; /* Similar to text-gray-300 */
+}
+
+/* Mobile Navigation Links */
+.mobile-nav-links {
+    display: none;
+    flex-direction: column;
+    padding: 1rem; 
+}
+
+.mobile-nav-links a {
+    display: block;
+    margin-bottom: 0.5rem; /* Equivalent to space-y-2 */
+    color: #a0aec0; /* Equivalent to text-gray-300 */
+    text-decoration: none;
+}
+
+.mobile-nav-links a:hover {
+    color: #ffffff; /* Equivalent to hover:text-white */
+}
+
+/* Media Queries for Larger Screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+    }
+    .mobile-nav-links{
+        display: block;
+    }
+    .mobile-menu-btn {
+        display: block; 
+    }
+}
