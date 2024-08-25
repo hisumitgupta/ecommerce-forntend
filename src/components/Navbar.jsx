@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/Navbardesign.css'
-
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 const Navbar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
@@ -14,12 +14,12 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-                <a href="#" className="brand">Ecommerce</a>
+                <Link to="/" className="brand">Ecommerce</Link>
                 <ul className="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Product</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">About Us</a></li>
+                    {/* <li><Link to="/">Home</Link></li> */}
+                    <li><Link to="/product">Products</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
                 </ul>
                 <div className="mobile-menu-btn">
                     <button id="menu-btn" onClick={(e) => { handleMobileBtn(e) }}>
@@ -32,10 +32,10 @@ const Navbar = () => {
             <div id="mobile-menu" className="mobile-nav-links"
                 style={{ display: menuVisible ? "block" : "none" }}
             >
-                <a href="#">Home</a>
-                <a href="#">Product</a>
-                <a href="#">Contact Us</a>
-                <a href="#">About Us</a>
+                {/* <Link to="/">Home</Link> */}
+                <Link to="/product">Product</Link>
+                <Link to="/contact">Contact Us</Link>
+                <Link to="/about">About Us</Link>
             </div>
         </nav>
 
