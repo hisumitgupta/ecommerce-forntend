@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-                <a href="#" className="brand">Ecommerce</a>
+                <a href="#" className="brand">hello</a>
                 <ul className="nav-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Product</a></li>
