@@ -1,7 +1,6 @@
-import React from 'react'
-import '../css/Navbardesign.css'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import '../css/Navbardesign.css'
 const Navbar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
     // const menuRef = useEffect(null)
@@ -17,9 +16,9 @@ const Navbar = () => {
                 <Link to="/" className="brand">Ecommerce</Link>
                 <ul className="nav-links">
                     {/* <li><Link to="/">Home</Link></li> */}
-                    <li><Link to="/product">Products</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link to="/products">Products</Link></li>
                     <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
                 </ul>
                 <div className="mobile-menu-btn">
                     <button id="menu-btn" onClick={(e) => { handleMobileBtn(e) }}>
@@ -29,14 +28,14 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
-            <div id="mobile-menu" className="mobile-nav-links"
-                style={{ display: menuVisible ? "block" : "none" }}
-            >
+            {menuVisible && <div id="mobile-menu" className="mobile-nav-links">
+                {/* <div id="mobile-menu" className={`mobile-nav-links ${onClick(handleMobileBtn())}`} > */}
                 {/* <Link to="/">Home</Link> */}
-                <Link to="/product">Product</Link>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/products">Product</Link>
                 <Link to="/about">About Us</Link>
-            </div>
+                <Link to="/contact">Contact Us</Link>
+            </div>}
+
         </nav>
 
 

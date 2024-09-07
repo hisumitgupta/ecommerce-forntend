@@ -2,6 +2,7 @@
 .navbar {
     background-color: #2d3748; /* Equivalent to bg-gray-800 */
     padding: 1rem; /* Equivalent to p-4 */
+    margin-bottom: 50px;
 }
 
 /* Container */
