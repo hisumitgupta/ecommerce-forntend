@@ -19,6 +19,7 @@ const Navbar = () => {
                     <li><Link to="/products">Products</Link></li>
                     <li><Link to="/about">About Us</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link to="/checkout">checkout</Link></li>
                 </ul>
                 <div className="mobile-menu-btn">
                     <button id="menu-btn" onClick={(e) => { handleMobileBtn(e) }}>
@@ -34,6 +35,7 @@ const Navbar = () => {
                 <Link to="/products">Product</Link>
                 <Link to="/about">About Us</Link>
                 <Link to="/contact">Contact Us</Link>
+                <Link to="/checkout">checkout</Link>
             </div>}
 
         </nav>

@@ -1,28 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
-import { apiFetch } from '../services/Api.js'
+import CartItem from '../components/CartItem.jsx'
+import { CartContext } from '../context/CartContext';
 const CheckOut = () => {
     // console.log(apiFetch)
+    const { cartData, setData } = useContext(CartContext)
+    // const [productData, setProductData] = useState([])
+    // useEffect(() => {
+    //     let getProduct = JSON.parse(localStorage.getItem('cartProduct'));
+    //     // console.log(getProduct/)
+    //     setProductData(getProduct)
+    // }, []);
+
+    // console.log(productData);
+
     return (
         <div>
             <Navbar />
+            {cartData.length === 0 ? <h1>No Product Here</h1> : ""}
             <div>
-            {<div className="product-container">
-                <div className="product-image">
-                    <img src="product-image.jpg" alt="Product Name"/>
-                </div>
-                <div className="product-details">
-                    <h1 className="product-title">Product Name</h1>
-                    <p className="product-price">$49.99</p>
-                    <p className="product-description">
-                        This is a brief description of the product. It highlights the key features and benefits of the product, making it appealing to potential buyers.
-                    </p>
-                    <button className="add-to-cart-btn">Add to Cart</button>
-                </div>
-            </div>}
-            
+                {cartData.map((item) => (
+                    <CartItem item={item} key={item.id} />
+                ))}
+
             </div>
-        </div>
+        </div >
     )
 }
 
