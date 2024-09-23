@@ -1,56 +1,107 @@
-import React, { useState } from 'react'
-import '../css/CheckoutDesign.css'
+import React, { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../context/CartContext';
+import '../css/CheckoutDesign.css';
 const CartItem = ({ item }) => {
 
     const [quantity, setQuantity] = useState(item.quantity || 0)
+    // const [getStoreData, setGetStoreData] = useState([])
 
-    let getProductItems = JSON.parse(localStorage.getItem('cart-data'));
-    
+    const { cartData, setData, setCartData } = useContext(CartContext)
+
+
+    // useEffect(() => {
+    //     let getData = JSON.parse(localStorage.getItem('cart-data'));
+    //     setGetStoreData(getData)
+    // }, [getStoreData])
+
+    // let getProductItems = JSON.parse(localStorage.getItem('cart-data'));
+    // let getProductItems = getStoreData
+    // 
+
     function handleIncrement(id) {
         setQuantity((prev) => prev + 1);
-        let checkPresent = getProductItems.some((Pitem) => {
-            return Pitem.id == id;
+        // let checkPresent = getProductItems.some((Pitem) => {
+        //     return Pitem.id == id;
+        // })
+        // if (checkPresent) {
+        //     getProductItems.forEach((data) => {
+        //         if (data.id == id) {
+        //             data.quantity = data.quantity + 1;
+        //         }
+        //     })
+        //     localStorage.setItem('cartProduct', JSON.stringify(getProductItems));
+        // }
+
+
+        setCartData((prevData) => {
+            let getIndex = prevData.findIndex(i => i.id == id)
+            if (getIndex >= 0) {
+                prevData[getIndex].quantity = quantity + 1;
+            }
+
+            return [...prevData]
         })
-        if (checkPresent) {
-            getProductItems.forEach((data) => {
-                if (data.id == id) {
-                    data.quantity = data.quantity + 1;
-                }
-            })
-            localStorage.setItem('cartProduct', JSON.stringify(getProductItems));
-        }
     }
 
     function handleDecrement(id) {
         setQuantity((prev) => prev - 1);
         // let getProductItems = JSON.parse(localStorage.getItem('cartProduct'));
-        let checkPresent = getProductItems.some((Pitem) => {
-            return Pitem.id == id;
-        })
-        if (checkPresent) {
-            let decrementData = getProductItems.map((data) => {
-                if (data.id == id) {
-                    data.quantity = data.quantity - 1;
-                    return data;
-                }
-            });
-            let newFilterData = decrementData.filter((filterData) => {
-                if (filterData.quantity !== 0) {
-                    return filterData
-                }
-            })
-            localStorage.setItem('cartProduct', JSON.stringify(newFilterData));
-        }
+        // let checkPresent = getProductItems.some((Pitem) => {
+        //     return Pitem.id == id;
+        // })
+        // if (checkPresent) {
+        //     let decrementData = getProductItems.map((data) => {
+        //         if (data.id == id) {
+        //             data.quantity = data.quantity - 1;
+        //             return data;
+        //         }
+        //     });
+        //     let newFilterData = decrementData.filter((filterData) => {
+        //         if (filterData.quantity !== 0) {
+        //             return filterData
+        //         }
+        //     })
+        //     localStorage.setItem('cartProduct', JSON.stringify(newFilterData));
+        // }
+
+
+        // setGetStoreData(getProductItems)
+        // setData(getProductItems)
+        setCartData((prevData) => {
+            let getIndex = prevData.findIndex(i => i.id == id);
+            if (getIndex >= 0) {
+                prevData[getIndex].quantity = quantity - 1;
+            }
+
+
+            // if (prevData[getIndex].quantity < 1) {
+                // prevData.slice(getIndex+1)
+                let newFilterData = prevData.filter((filterData) => {
+                    if (filterData.quantity !== 0) {
+                        return filterData
+                    }
+                })
+            // }
+            return [...newFilterData]
+        });
     }
 
     //function 
     function handleDelete(deleteId) {
-        let filterProduct = getProductItems.filter((Pitem, index) => {
-            if (Pitem.id != deleteId) {
-                return Pitem
-            }
+        // let filterProduct = getProductItems.filter((Pitem, index) => {
+        //     if (Pitem.id != deleteId) {
+        //         return Pitem
+        //     }
+        // })
+        // localStorage.setItem('cartProduct', JSON.stringify(filterProduct));
+        setCartData((prevData)=>{
+            let filterProduct =  prevData.filter((filterData) => {
+                if (filterData.id !== deleteId) {
+                    return filterData
+                }
+            })
+            return [...filterProduct]
         })
-        localStorage.setItem('cartProduct', JSON.stringify(filterProduct));
         // console.log(getProductItems)
     }
 

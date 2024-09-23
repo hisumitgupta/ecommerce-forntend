@@ -29,7 +29,7 @@ export default function ProductDetails() {
 
     const navigate = useNavigate();
     function storeProduct() {
-        console.log(cartData)
+        // console.log(cartData)
         newData.quantity = quan;
         // console.log(CartData);
         if (newData.quantity != 0) {
@@ -102,7 +102,6 @@ export default function ProductDetails() {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )
