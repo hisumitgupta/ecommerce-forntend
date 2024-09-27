@@ -1,0 +1,21 @@
+/* Why Shop With Us Section */
+.why-shop {
+    background-color: #975d5324;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.why-shop h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.why-shop ul {
+    list-style: none;
+}
+
+.why-shop ul li {
+    font-size: 18px;
+    margin: 10px 0;
+}

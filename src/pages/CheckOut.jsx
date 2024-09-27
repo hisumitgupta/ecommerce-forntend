@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import CartItem from '../components/CartItem.jsx'
 import { CartContext } from '../context/CartContext';
+
 const CheckOut = () => {
     // console.log(apiFetch)
     const { cartData, setData } = useContext(CartContext)
@@ -27,20 +28,16 @@ const CheckOut = () => {
 
         <div >
             <Navbar />
+            {cartData.length === 0 ? <h1>No Product Here</h1> : ""}
             <div className="cart-container">
-
-                {/* <div className=''> */}
                 <div className="cart-items">
-                    {cartData.length === 0 ? <h1>No Product Here</h1> : ""}
                     <div className="cart-items-list">
                         {cartData.map((item) => (
                             <CartItem item={item} key={item.id} />
                         ))}
                     </div>
                 </div>
-                {/* </div> */}
-
-                <div className="cart-summary">
+                <div className={`cart-summary ${cartData.length === 0 ? 'dsp-none' : ""}`}>
                     <h2>Order Summary</h2>
                     <table>
                         <thead>
@@ -48,6 +45,7 @@ const CheckOut = () => {
                                 <th>Item</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
+                                <th>Sub Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,13 +53,15 @@ const CheckOut = () => {
                                 <tr key={item.id}>
                                     <td>{item.title}</td>
                                     <td>{item.quantity}</td>
+                                    <td>${item.price}</td>
                                     <td>${item.price * item.quantity}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                     <div className="cart-total">
-                        <h3>Total: ${cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0)}</h3>
+                        <button className='checkoutBtn' onClick={()=>{alert('Payment Done')}}>CheckOut</button>
+                        <h3>Total: ${cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2)}</h3>
                     </div>
                 </div>
             </div>

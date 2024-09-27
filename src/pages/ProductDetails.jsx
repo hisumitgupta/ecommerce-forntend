@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { json, useNavigate, useParams } from 'react-router-dom'
 import { productFetch } from '../services/Api';
-import '../css/CheckoutDesign.css'
+// import '../css/CheckoutDesign.css'
+import '../css/ProductDetail.css'
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext';
+
 export default function ProductDetails() {
 
     const [newData, setNewData] = useState({});
@@ -82,7 +84,7 @@ export default function ProductDetails() {
     return (
         <div>
             <Navbar />
-            <div>
+            <div className='productDetailsContainer'>
                 <div className="product-container" key={newData.id}>
                     <div className="product-image">
                         <img src={newData.image} alt={newData.title} />
@@ -94,11 +96,13 @@ export default function ProductDetails() {
                             {newData.description}
                         </p>
                         <div className="quantity-container">
+                            <div>
                             <button className="quantity-btn minus-btn" disabled={quan == 0} onClick={() => setQuan((prev) => prev - 1)}>−</button>
                             <input type="number" className="quantity-input" value={quan} min="1" readOnly />
                             <button className="quantity-btn plus-btn" disabled={quan >= 10} onClick={() => setQuan((prev) => prev + 1)}>+</button>
+                            </div>
                             {/* <button className="add-to-cart-btn">Add to Cart</button> */}
-                            <button className='buynow-btn' onClick={storeProduct}>buyNow</button>
+                            <button className='Listbuynow-btn productBuyBtn ' onClick={storeProduct}>buyNow</button>
                         </div>
                     </div>
                 </div>

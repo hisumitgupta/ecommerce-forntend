@@ -1,77 +1,88 @@
 .ProductCard-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-  }
-  
-  .card {
-    width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    text-align: center;
-    /* margin: 0 auto; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0px;
-  }
-  
-  .card-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    height: 100px;
-    width: 100px;
-  }
-  
-  .card-content {
-    padding: 16px;
-  }
-  
-  .card-title {
-    font-size: 18px;
-    margin: 0;
-    color: #333;
-  }
-  
-  .card-price {
-    font-size: 16px;
-    color: #e74c3c;
-    margin: 8px 0;
-  }
-  
-  .card-description {
-    font-size: 14px;
-    color: #666;
-    margin: 8px 0;
-  }
-  
-  .card-category {
-    font-size: 14px;
-    color: #555;
-    margin: 8px 0;
-  }
-  
-  .card-rating {
-    font-size: 14px;
-    color: #f39c12;
-    margin: 8px 0;
-  }
-  .buynow-btn{
-    width: 100px;
-    padding: 10px;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  .btn-link{
-    text-decoration: none;
-    color: white;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  height: 100px;
+  width: 100px;
+}
+
+.card-content {
+  padding: 16px;
+  position: relative;
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+.card-price {
+  font-size: 16px;
+  color: #e74c3c;
+  margin: 8px 0;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  width: 270px;
+  text-align: center;
+}
+
+.card-category {
+  font-size: 14px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.card-rating {
+  font-size: 14px;
+  color: #f39c12;
+  margin: 8px 0;
+}
+
+.Listbuynow-btn {
+  width: 100px;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  /* position: absolute;
+  bottom: 20px; */
+}
+
+.btn-link {
+  text-decoration: none;
+  color: white;
+}

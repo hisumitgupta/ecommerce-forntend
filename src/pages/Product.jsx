@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import '../css/ProductCard.css'
+// import '../css/ProductList.css'
 import { apiFetch } from '../services/Api.js'
 import { Link,useLocation } from 'react-router-dom'
 // import React, { useState, useEffect } from 'react';
@@ -43,7 +44,7 @@ const Product = () => {
               <span>Rating: {elem.rating.rate}</span> ({elem.rating.count} reviews)
             </div>
             {/* <button className='buynow-btn' >buyNow</button> */}
-            <Link to={`/product/${elem.id}`} className='btn-link'><button className='buynow-btn'>buyNow</button></Link> 
+            <Link to={`/product/${elem.id}`} className='btn-link'><button className='Listbuynow-btn'>buyNow</button></Link> 
             
           </div>
         </div>
